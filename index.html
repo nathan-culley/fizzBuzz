@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--GOAL: write a fully functional webpage (with aesthetically pleasing visuals) that allows the user to input a number up to 100 and then outputs the FizzBuzz sequence up to that number.-->
+    </head>
+    <body>
+        <h1>FizzBuzz</h1>
+            <p>This is my attempt at creating FizzBuzz for The Odin Project. The Odin Project only requires that this be a console program, but I was getting rusty on my HTML and CSS at the time of programming this, so I decided to make a full-fledged webpage instead.</p>
+            <p>FizzBuzz is a classic programming puzzle for beginners. The goal is to write a program that outputs a sequence of numbers, starting at 1 and ending at a number chosen by a user. The catch is that numbers that are divisible by 3 are replaced in the sequence with "Fizz," numbers that are divisible by 5 are replaced with "Buzz," and numbers that are divisible by both 3 and 5 are replaced with "FizzBuzz."</p>
+            <p>For example, if the user chose the number 19, the sequence would be "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19." Try it yourself below:</p>
+        <h3>Try FizzBuzz</h3>
+            <form>
+                <label for="userInput">Input a number between 1 and 100, inclusive:</label>
+                <input id="userInput" type="number" min = "1" max = "100" name="maxNumber">
+                <input type="button" value="submit" onclick="execute()">
+            </form>
+        <div id="output">
+            <h3 id="announcement"></h3>
+            <p id="description"></p>
+        </div>
+        <script>
+            function execute() {
+                let maxNum = document.getElementById("userInput").value;
+                let fizz = divCheckThree(maxNum);
+                let buzz = divCheckFive(maxNum);
+                printSequence(maxNum,fizz,buzz);
+            }
+            function divCheckThree(maxNum) {
+                if (maxNum % 3 == 0) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            function divCheckFive(maxNum) {
+                if (maxNum % 5 == 0) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            function printSequence(maxNum,fizz,buzz) {
+                let announcement = document.getElementById("announcement");
+                announcement.innerHTML = "Your max number is " + maxNum + ".";
+                let description = document.getElementById("description");
+                if (fizz && buzz) {
+                    description.innerHTML = maxNum + " is divisible by 3 and 5."
+                }
+                else if (fizz) {
+                    description.innerHTML = maxNum + " is divisible by 3, but not 5."
+                }
+                else if (buzz) {
+                    description.innerHTML = maxNum + " is divisible by 5, but not 3."
+                }
+                else {
+                    description.innerHTML = maxNum + " is divisible by neither 3 nor 5."
+                }
+            }
+            /*function getMaxNum() {
+                let maxNum = document.getElementById("userInput").value;
+                
+                //alert(maxNum);
+                printSequence(maxNum);
+            }
+            function printSequence(maxNum) {
+                let announcement = document.getElementById("announcement");
+                announcement.innerHTML = "Your max number is " + maxNum + ".";
+            }
+            function divCheckThree(maxNum){
+                let fizz;
+                if (maxNum % 3 == 0) {
+                    fizz = true;
+                }
+                else {
+                    fizz = false;
+                }
+                fizz.alert();
+            }
+            divCheckThree(maxNum);*/
+
+
+
+
+
+
+
+
+
+            /*
+            function divCheckThree() {
+                if (i % 3 == 0) {
+                    fizz = true;
+                }
+                else {
+                    fizz = false;
+                }
+                return fizz;
+            }
+            function divCheckFive() {
+                if (i % 5 == 0) {
+                    buzz = true;
+                }
+                else {
+                    buzz = false;
+                }
+                return buzz;
+            }
+            function createSequence() {
+                let sequence;
+            }            
+            function printNumber() {
+                if (fizz & buzz) {
+                    
+                }
+                else if (fizz) {
+
+                }
+                else if (buzz) {
+
+                }
+                else {
+
+                }
+                return output;
+            }
+            function counter() {
+                for (let i = 1; i <= maxNum; i++) {
+                    divCheckThree(i);
+                    divCheckFive(i);
+                    printNumber(i);
+                }
+            }
+            */
+        </script>
+    </body>
+</html>
