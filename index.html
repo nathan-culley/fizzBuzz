@@ -16,32 +16,34 @@
             </form>
         <div id="output">
             <h3 id="announcement"></h3>
-            <p id="description"></p>
+            <p id="sequence"></p>
         </div>
         <script>
             function execute() {
                 let maxNum = document.getElementById("userInput").value;
-                let fizz = divCheckThree(maxNum);
-                let buzz = divCheckFive(maxNum);
-                printSequence(maxNum,fizz,buzz);
+                /*let fizz = divCheckThree(maxNum);
+                let buzz = divCheckFive(maxNum);*/
+                let fizz, buzz;
+                counter(maxNum,fizz,buzz);
+                //printSequence(maxNum,fizz,buzz,i);
             }
-            function divCheckThree(maxNum) {
-                if (maxNum % 3 == 0) {
+            function divCheckThree(i) {
+                if (i % 3 == 0) {
                     return true;
                 }
                 else {
                     return false;
                 }
             }
-            function divCheckFive(maxNum) {
-                if (maxNum % 5 == 0) {
+            function divCheckFive(i) {
+                if (i % 5 == 0) {
                     return true;
                 }
                 else {
                     return false;
                 }
             }
-            function printSequence(maxNum,fizz,buzz) {
+            /*function printSequence(maxNum,fizz,buzz) {
                 let announcement = document.getElementById("announcement");
                 announcement.innerHTML = "Your max number is " + maxNum + ".";
                 let description = document.getElementById("description");
@@ -56,6 +58,34 @@
                 }
                 else {
                     description.innerHTML = maxNum + " is divisible by neither 3 nor 5."
+                }
+            }*/
+            function counter(maxNum,fizz,buzz) {
+                for (i=1; i<=maxNum; ++i) {
+                    let fizz = divCheckThree(i);
+                    let buzz = divCheckFive(i);
+                    printSequence(maxNum,fizz,buzz,i);
+                    //console.log(i);
+                    //console.log(fizz);
+                    //console.log(buzz);
+                }
+            }
+            function printSequence(maxNum,fizz,buzz,i) {
+                let announcement = document.getElementById("announcement");
+                announcement.innerHTML = "Your max number is " + maxNum + ". Your sequence is:";
+                let sequence = document.getElementById("sequence");
+                if (fizz && buzz) {
+                    sequence.innerHTML += "FizzBuzz ";
+                }
+                else if (fizz) {
+                    sequence.innerHTML += "Fizz ";
+                }
+                else if (buzz) {
+                    sequence.innerHTML += "Buzz ";
+                }
+                else {
+                    let numOutput = i.toString();
+                    sequence.innerHTML += numOutput + " ";
                 }
             }
             /*function getMaxNum() {
@@ -80,14 +110,7 @@
             }
             divCheckThree(maxNum);*/
 
-
-
-
-
-
-
-
-
+            
             /*
             function divCheckThree() {
                 if (i % 3 == 0) {
